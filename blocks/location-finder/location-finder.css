@@ -1,0 +1,411 @@
+/* Location Finder Block */
+.location-finder {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: visible;
+  border-radius: 8px;
+  min-height: 220px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
+}
+
+@media (width >= 900px) {
+  .location-finder {
+    flex-direction: row;
+  }
+}
+
+/* Left panel */
+.location-finder .location-finder-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  background-color: var(--color-terracotta);
+  color: #fff;
+  border-radius: 8px 8px 0 0;
+}
+
+@media (width >= 900px) {
+  .location-finder .location-finder-panel {
+    flex: 0 0 50%;
+    padding: 2.5rem 2rem;
+    border-radius: 8px 0 0 8px;
+  }
+}
+
+.location-finder .location-finder-title {
+  margin: 0 0 1rem;
+  font-family: var(--heading-font-family);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  .location-finder .location-finder-title {
+    font-size: 1.75rem;
+  }
+}
+
+.location-finder .location-finder-label {
+  margin: 0 0 0.625rem;
+  font-family: var(--body-font-family);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* Search bar */
+.location-finder .location-finder-search {
+  display: flex;
+  align-items: center;
+  max-width: 280px;
+  border-radius: 100px;
+  overflow: hidden;
+  border: 2px solid rgb(255 255 255 / 50%);
+  background: rgb(255 255 255 / 15%);
+}
+
+.location-finder .location-finder-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.5rem 1rem;
+  border: 0;
+  background: transparent;
+  font-family: var(--body-font-family);
+  font-size: 0.8125rem;
+  color: #fff;
+  outline: 0;
+}
+
+.location-finder .location-finder-input::placeholder {
+  color: rgb(255 255 255 / 70%);
+}
+
+.location-finder .location-finder-button {
+  flex-shrink: 0;
+  padding: 0.5rem 1.25rem;
+  border: 0;
+  background-color: var(--color-dark-brown);
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+.location-finder .location-finder-button:hover {
+  background-color: #2a1e14;
+}
+
+/* Map placeholder */
+.location-finder .location-finder-map {
+  flex: 1;
+  min-height: 180px;
+  background-color: var(--color-beige);
+  border-radius: 0 0 8px 8px;
+  background-image:
+    linear-gradient(135deg, rgb(0 0 0 / 3%) 25%, transparent 25%),
+    linear-gradient(225deg, rgb(0 0 0 / 3%) 25%, transparent 25%),
+    linear-gradient(45deg, rgb(0 0 0 / 3%) 25%, transparent 25%),
+    linear-gradient(315deg, rgb(0 0 0 / 3%) 25%, transparent 25%);
+  background-size: 20px 20px;
+}
+
+@media (width >= 900px) {
+  .location-finder .location-finder-map {
+    border-radius: 0 8px 8px 0;
+  }
+}
+
+.location-finder .location-finder-map-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 180px;
+  color: var(--color-muted-brown);
+  gap: 0.5rem;
+}
+
+.location-finder .location-finder-map-icon {
+  opacity: 0.4;
+}
+
+.location-finder .location-finder-map-placeholder span {
+  font-family: var(--body-font-family);
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+/* Modal overlay */
+.location-finder .location-finder-overlay,
+.location-finder .location-finder-confirmation {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0 0 0 / 55%);
+  backdrop-filter: blur(3px);
+  padding: 1rem;
+}
+
+.location-finder .location-finder-overlay[hidden],
+.location-finder .location-finder-confirmation[hidden] {
+  display: none;
+}
+
+.location-finder .location-finder-modal {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 40px rgb(0 0 0 / 25%);
+  animation: lf-slide-up 0.3s ease;
+}
+
+@keyframes lf-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.location-finder .location-finder-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #666;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.location-finder .location-finder-modal-close:hover {
+  background: #f0f0f0;
+}
+
+.location-finder .location-finder-modal-title {
+  margin: 0 0 0.25rem;
+  font-family: var(--heading-font-family);
+  font-size: 1.375rem;
+  color: var(--color-dark-brown);
+}
+
+.location-finder .location-finder-modal-subtitle {
+  margin: 0 0 1.25rem;
+  font-size: 0.8125rem;
+  color: #888;
+}
+
+/* Location cards */
+.location-finder .location-finder-location-card {
+  border: 1px solid #e5e0da;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.location-finder .location-finder-location-card:hover {
+  border-color: var(--color-terracotta);
+}
+
+.location-finder .location-finder-location-card.selected {
+  border-color: var(--color-terracotta);
+  box-shadow: 0 0 0 1px var(--color-terracotta);
+  background: #fdf8f5;
+}
+
+.location-finder .location-finder-location-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.location-finder .location-finder-location-name {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-dark-brown);
+}
+
+.location-finder .location-finder-location-distance {
+  font-size: 0.75rem;
+  color: #999;
+  white-space: nowrap;
+}
+
+.location-finder .location-finder-location-address {
+  font-size: 0.8125rem;
+  color: #666;
+  margin: 0 0 0.75rem;
+}
+
+/* Time slots */
+.location-finder .location-finder-times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.location-finder .location-finder-time-option {
+  position: relative;
+}
+
+.location-finder .location-finder-time-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.location-finder .location-finder-time-label {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #666;
+  border: 1px solid #ddd;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-family: var(--body-font-family);
+}
+
+.location-finder .location-finder-time-label:hover {
+  border-color: var(--color-terracotta);
+  color: var(--color-terracotta);
+}
+
+.location-finder .location-finder-time-option input[type="radio"]:checked + .location-finder-time-label {
+  background: var(--color-terracotta);
+  border-color: var(--color-terracotta);
+  color: #fff;
+}
+
+/* Confirm reservation button */
+.location-finder .location-finder-modal-actions {
+  margin-top: 1.25rem;
+  text-align: right;
+}
+
+.location-finder .location-finder-confirm-btn {
+  padding: 0.625rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-terracotta);
+  border: 0;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.25s, opacity 0.25s;
+  font-family: var(--body-font-family);
+}
+
+.location-finder .location-finder-confirm-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.location-finder .location-finder-confirm-btn:hover:not(:disabled) {
+  background: #a84324;
+}
+
+.location-finder .location-finder-no-results {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #888;
+  font-size: 0.875rem;
+}
+
+/* Confirmation dialog */
+.location-finder .location-finder-confirmation {
+  z-index: 10001;
+}
+
+.location-finder .location-finder-confirm-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 8px 40px rgb(0 0 0 / 25%);
+  animation: lf-slide-up 0.3s ease;
+}
+
+.location-finder .location-finder-confirm-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 1.5rem;
+}
+
+.location-finder .location-finder-confirm-heading {
+  margin: 0 0 1rem;
+  font-family: var(--heading-font-family);
+  font-size: 1.375rem;
+  color: var(--color-dark-brown);
+}
+
+.location-finder .location-finder-confirm-details {
+  font-size: 0.875rem;
+  color: var(--color-medium-brown);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.location-finder .location-finder-confirm-details p {
+  margin: 0.25rem 0;
+}
+
+.location-finder .location-finder-confirm-done {
+  padding: 0.625rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-terracotta);
+  border: 0;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.25s;
+  font-family: var(--body-font-family);
+}
+
+.location-finder .location-finder-confirm-done:hover {
+  background: #a84324;
+}

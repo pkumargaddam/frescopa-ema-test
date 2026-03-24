@@ -115,7 +115,11 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  let navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  // Support content folder when running with --html-folder
+  if (window.location.pathname.startsWith('/content/')) {
+    navPath = `/content${navPath}`;
+  }
   const fragment = await loadFragment(navPath);
 
   // decorate nav DOM
@@ -131,10 +135,13 @@ export default async function decorate(block) {
   });
 
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+  if (navBrand) {
+    const brandLink = navBrand.querySelector('.button');
+    if (brandLink) {
+      brandLink.className = '';
+      const btnContainer = brandLink.closest('.button-container');
+      if (btnContainer) btnContainer.className = '';
+    }
   }
 
   const navSections = nav.querySelector('.nav-sections');
@@ -164,8 +171,14 @@ export default async function decorate(block) {
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
+  // Promo strip
+  const promoStrip = document.createElement('div');
+  promoStrip.className = 'promo-strip';
+  promoStrip.innerHTML = '<span>Free shipping from $35 &amp; Free coffee samples with code frescopa.</span><a href="/us/en/coffee">Shop now</a>';
+
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
+  block.append(promoStrip);
   block.append(navWrapper);
 }

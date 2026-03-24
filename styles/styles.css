@@ -11,30 +11,42 @@
  */
 
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  /* Frescopa brand colors */
+  --background-color: #fff;
+  --light-color: #f5ece0;
+  --dark-color: #3d2c1e;
+  --text-color: #000;
+  --link-color: #dc6e52;
+  --link-hover-color: #c1512e;
+  --color-terracotta: #c1512e;
+  --color-dark-brown: #3d2c1e;
+  --color-amber: #eaa33a;
+  --color-deep-red: #a03532;
+  --color-cream: #f5ece0;
+  --color-beige: #e8e0d4;
+  --color-sand: #f0e0d2;
+  --color-teal: #27647d;
+  --color-medium-brown: #4a3f35;
+  --color-muted-brown: #8a7a68;
+  --color-warm-brown: #8b593d;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --heading-font-family: georgia, "Times New Roman", times, serif;
+  --display-font-family: baskerville, "Helvetica Neue", helvetica, arial, sans-serif;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 13px;
 
   /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  --heading-font-size-xxl: 48px;
+  --heading-font-size-xl: 36px;
+  --heading-font-size-l: 28px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-s: 22px;
+  --heading-font-size-xs: 18px;
 
   /* nav height */
   --nav-height: 64px;
@@ -55,17 +67,14 @@
 
 @media (width >= 900px) {
   :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
+    --body-font-size-m: 16px;
+    --body-font-size-s: 14px;
+    --body-font-size-xs: 13px;
+    --heading-font-size-xxl: 56px;
     --heading-font-size-xl: 36px;
     --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
+    --heading-font-size-m: 24px;
+    --heading-font-size-s: 22px;
     --heading-font-size-xs: 18px;
   }
 }
@@ -77,7 +86,7 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 body.appear {
@@ -107,9 +116,10 @@ h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 400;
+  line-height: 1.3;
   scroll-margin: 40px;
+  color: var(--color-dark-brown);
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
@@ -179,16 +189,18 @@ button.button {
   max-width: 100%;
   margin: 0;
   border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font: inherit;
-  font-weight: 500;
+  border-radius: 100px;
+  padding: 8px 24px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
   line-height: 1.25;
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: background-color 0.25s, border-color 0.25s;
 }
 
 a.button[aria-disabled="true"],
@@ -199,18 +211,18 @@ button.button:disabled {
 
 a.button.primary,
 button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
-  color: var(--background-color);
+  border-color: var(--color-terracotta);
+  background-color: var(--color-terracotta);
+  color: #fff;
 }
 
 a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
+  border-color: #a84324;
+  background-color: #a84324;
+  color: #fff;
 }
 
 a.button.primary[aria-disabled="true"],
@@ -226,18 +238,18 @@ button.button.primary:disabled:focus-visible {
 
 a.button.secondary,
 button.button.secondary {
-  border-color: var(--text-color);
+  border-color: var(--color-dark-brown);
   background-color: transparent;
-  color: var(--text-color);
+  color: var(--color-dark-brown);
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  border-color: var(--color-dark-brown);
+  background-color: var(--color-cream);
+  color: var(--color-dark-brown);
 }
 
 a.button.secondary[aria-disabled="true"],
@@ -254,17 +266,17 @@ button.button.secondary:disabled:focus-visible {
 /* high-impact call-to-action */
 a.button.accent,
 button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
-  color: var(--background-color);
+  border-color: var(--color-dark-brown);
+  background-color: var(--color-dark-brown);
+  color: #fff;
 }
 
 a.button.accent:hover,
 a.button.accent:focus-visible,
 button.button.accent:hover,
 button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
+  border-color: #2a1e14;
+  background-color: #2a1e14;
 }
 
 a.button.accent[aria-disabled="true"],
@@ -322,4 +334,22 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+main .section.amber {
+  background-color: var(--color-amber);
+  margin: 0;
+  padding: 0;
+}
+
+main .section.cream {
+  background-color: var(--color-cream);
+  margin: 0;
+  padding: 0;
+}
+
+main .section.sand {
+  background-color: var(--color-sand);
+  margin: 0;
+  padding: 0;
 }

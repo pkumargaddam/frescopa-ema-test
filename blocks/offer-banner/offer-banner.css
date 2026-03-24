@@ -1,0 +1,90 @@
+/* Offer Banner Block */
+.offer-banner-container {
+  margin: 0;
+}
+
+.offer-banner-container .offer-banner-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.offer-banner {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  background-color: #3d2c1e;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.offer-banner.has-bg-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 55%);
+}
+
+.offer-banner .offer-banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  width: 100%;
+}
+
+/* Pre-title line */
+.offer-banner .offer-banner-content p:first-child {
+  margin: 0 0 0.25rem;
+  font-family: var(--body-font-family);
+  font-size: 1.25rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-teal);
+}
+
+/* Detail/subtitle line */
+.offer-banner .offer-banner-content p:nth-child(2) {
+  margin: 0 0 0.75rem;
+  font-family: var(--body-font-family);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-teal);
+}
+
+/* Main headline */
+.offer-banner .offer-banner-content h2 {
+  margin: 0 0 1.5rem;
+  font-family: var(--display-font-family);
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  .offer-banner .offer-banner-content h2 {
+    font-size: 3.5rem;
+  }
+}
+
+/* CTA */
+.offer-banner .button-wrapper {
+  margin: 0;
+}
+
+.offer-banner a.button {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  font-weight: 700;
+}
+
+.offer-banner a.button:hover {
+  background-color: rgb(255 255 255 / 15%);
+}
