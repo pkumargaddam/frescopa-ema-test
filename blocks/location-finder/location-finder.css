@@ -1,12 +1,15 @@
 /* Location Finder Block */
+.location-finder-container .location-finder-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
 .location-finder {
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: visible;
-  border-radius: 8px;
   min-height: 220px;
-  box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
 }
 
 @media (width >= 900px) {
@@ -23,14 +26,12 @@
   padding: 2rem 1.5rem;
   background-color: var(--color-terracotta);
   color: #fff;
-  border-radius: 8px 8px 0 0;
 }
 
 @media (width >= 900px) {
   .location-finder .location-finder-panel {
     flex: 0 0 50%;
     padding: 2.5rem 2rem;
-    border-radius: 8px 0 0 8px;
   }
 }
 
@@ -109,19 +110,12 @@
   flex: 1;
   min-height: 180px;
   background-color: var(--color-beige);
-  border-radius: 0 0 8px 8px;
   background-image:
     linear-gradient(135deg, rgb(0 0 0 / 3%) 25%, transparent 25%),
     linear-gradient(225deg, rgb(0 0 0 / 3%) 25%, transparent 25%),
     linear-gradient(45deg, rgb(0 0 0 / 3%) 25%, transparent 25%),
     linear-gradient(315deg, rgb(0 0 0 / 3%) 25%, transparent 25%);
   background-size: 20px 20px;
-}
-
-@media (width >= 900px) {
-  .location-finder .location-finder-map {
-    border-radius: 0 8px 8px 0;
-  }
 }
 
 .location-finder .location-finder-map-placeholder {
