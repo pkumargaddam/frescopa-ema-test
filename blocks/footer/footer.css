@@ -4,10 +4,17 @@ footer {
   color: var(--color-dark-brown);
 }
 
+/* Footer wrapper */
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: 0 24px;
+}
+
+@media (width >= 900px) {
+  footer .footer > div {
+    padding: 0 32px;
+  }
 }
 
 footer .footer p {
@@ -25,42 +32,25 @@ footer .footer a:hover {
   text-decoration: underline;
 }
 
-/* Footer main area - logo + address + link columns */
-footer .footer > div:first-child {
+/* First section: brand + link columns */
+footer .footer .section:first-child {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding-top: 50px;
-  padding-bottom: 25px;
+  padding: 50px 0 25px;
 }
 
 @media (width >= 900px) {
-  footer .footer > div:first-child {
+  footer .footer .section:first-child {
     flex-direction: row;
     gap: 3rem;
-    padding: 50px 32px 25px;
   }
 }
 
-/* Footer address block */
-footer .footer > div:first-child > .default-content-wrapper:first-child {
-  flex: 0 0 auto;
-  min-width: 200px;
-}
-
-footer .footer > div:first-child > .default-content-wrapper:first-child img {
-  width: 120px;
-  height: auto;
-  margin-bottom: 0.5rem;
-}
-
-/* Footer link columns */
+/* Columns block styling (must come before section > div selectors for specificity) */
 footer .footer .columns-wrapper {
-  flex: 1;
-}
-
-footer .footer .columns {
-  flex: 1;
+  max-width: unset;
+  padding: 0;
 }
 
 footer .footer .columns > div {
@@ -77,26 +67,6 @@ footer .footer .columns > div {
   }
 }
 
-/* Footer strip (legal/copyright) */
-footer .footer > div:last-child {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  border-top: 1px solid #d8ccbe;
-  padding-top: 1rem;
-  margin-top: 0;
-  font-size: 11px;
-  color: var(--color-muted-brown);
-}
-
-@media (width >= 900px) {
-  footer .footer > div:last-child {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 1rem 32px 24px;
-  }
-}
-
 footer .footer .columns > div > div {
   flex: 1;
 }
@@ -105,4 +75,42 @@ footer .footer .columns > div > div p:first-child {
   font-weight: 700;
   color: var(--color-dark-brown);
   margin-bottom: 0.5rem;
+}
+
+/* Brand / address area (left side) */
+footer .footer .section:first-child > div:first-child {
+  flex: 0 0 auto;
+  min-width: 200px;
+}
+
+footer .footer .section:first-child > div:first-child img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+/* Link columns area (right side) */
+footer .footer .section:first-child > div:last-child {
+  flex: 1;
+}
+
+/* Copyright section (bottom strip) */
+footer .footer .section:last-child {
+  border-top: 1px solid #d8ccbe;
+  padding: 1rem 0 24px;
+}
+
+footer .footer .section:last-child .default-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 11px;
+  color: var(--color-muted-brown);
+}
+
+@media (width >= 900px) {
+  footer .footer .section:last-child .default-content-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
