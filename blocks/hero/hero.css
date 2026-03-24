@@ -10,46 +10,37 @@
 .hero {
   position: relative;
   background-color: var(--color-amber);
-  border-radius: 8px;
   overflow: hidden;
-  margin: 1rem;
 }
 
-@media (width >= 900px) {
-  .hero {
-    margin: 1.5rem 2rem;
-  }
-}
-
-/* Row container - flex layout */
+/* Row container */
 .hero > div {
-  display: flex;
-  flex-direction: column;
-  min-height: 300px;
+  position: relative;
+  min-height: 340px;
 }
 
 @media (width >= 900px) {
   .hero > div {
-    flex-direction: row;
-    min-height: 380px;
+    min-height: 480px;
   }
 }
 
-/* Content side */
+/* Content overlays the image */
 .hero .hero-content {
-  flex: 1;
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   padding: 2rem 1.5rem;
-  order: 1;
+  min-height: 340px;
 }
 
 @media (width >= 900px) {
   .hero .hero-content {
-    padding: 2.5rem 3rem;
-    order: 0;
-    flex: 0 0 45%;
+    max-width: 50%;
+    padding: 3rem;
+    min-height: 480px;
   }
 }
 
@@ -107,24 +98,18 @@
   border-color: #2a1e14;
 }
 
-/* Image side */
+/* Image covers the full hero area as background */
 .hero .hero-image {
-  flex: 0 0 auto;
-  order: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   line-height: 0;
-}
-
-@media (width >= 900px) {
-  .hero .hero-image {
-    flex: 0 0 55%;
-    order: 1;
-  }
 }
 
 .hero picture {
   display: block;
-  line-height: 0;
   height: 100%;
+  width: 100%;
 }
 
 .hero img {

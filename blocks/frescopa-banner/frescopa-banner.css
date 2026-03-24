@@ -2,17 +2,9 @@
 .frescopa-banner {
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
   overflow: hidden;
   background-color: var(--color-cream);
-  box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
-}
-
-@media (width >= 900px) {
-  .frescopa-banner {
-    flex-direction: row;
-    align-items: center;
-  }
+  border-radius: 8px;
 }
 
 /* Row container */
@@ -36,21 +28,17 @@
 
 @media (width >= 900px) {
   .frescopa-banner > div > div:first-child {
-    flex: 0 0 260px;
-    max-width: 260px;
+    flex: 0 0 172px;
+    max-width: 172px;
+    align-self: stretch;
   }
 }
 
 .frescopa-banner img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-}
-
-@media (width >= 900px) {
-  .frescopa-banner img {
-    max-width: 260px;
-  }
+  display: block;
 }
 
 /* Content column */
@@ -60,7 +48,7 @@
 
 @media (width >= 900px) {
   .frescopa-banner > div > div:last-child {
-    padding: 1.5rem 2rem;
+    padding: 24px 32px;
   }
 }
 
