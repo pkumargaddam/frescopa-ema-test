@@ -36,6 +36,7 @@
     flex: 0 0 256px;
     max-width: 256px;
     align-self: stretch;
+    min-height: 227px;
   }
 }
 

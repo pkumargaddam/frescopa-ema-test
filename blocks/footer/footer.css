@@ -18,8 +18,8 @@ footer .footer > div {
 }
 
 footer .footer p {
-  margin: 0;
-  line-height: 1.8;
+  margin: 12px 0;
+  line-height: 20px;
 }
 
 footer .footer a:any-link {
@@ -84,7 +84,7 @@ footer .footer .section:first-child > div:first-child {
 }
 
 footer .footer .section:first-child > div:first-child img {
-  width: 120px;
+  width: 180px;
   height: auto;
   margin-bottom: 0.5rem;
 }
@@ -97,7 +97,7 @@ footer .footer .section:first-child > div:last-child {
 /* Copyright section (bottom strip) */
 footer .footer .section:last-child {
   border-top: 1px solid #d8ccbe;
-  padding: 1rem 0 24px;
+  padding: 20px 0 24px;
 }
 
 footer .footer .section:last-child .default-content-wrapper {

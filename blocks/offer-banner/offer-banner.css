@@ -1,6 +1,6 @@
 /* Offer Banner Block */
-.offer-banner-container {
-  margin: 0;
+main > .offer-banner-container {
+  margin: 0 0 80px;
 }
 
 .offer-banner-container .offer-banner-wrapper {
@@ -10,7 +10,7 @@
 
 .offer-banner {
   position: relative;
-  min-height: 400px;
+  min-height: 480px;
   display: flex;
   align-items: center;
   background-color: #3d2c1e;

@@ -9,7 +9,7 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  min-height: 220px;
+  min-height: 323px;
   border-radius: 8px;
 }
 
@@ -31,8 +31,9 @@
 
 @media (width >= 900px) {
   .location-finder .location-finder-panel {
-    flex: 0 0 50%;
-    padding: 2.5rem 2rem;
+    flex: 0 0 39%;
+    box-sizing: border-box;
+    padding: 48px 40px;
   }
 }
 

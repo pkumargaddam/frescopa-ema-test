@@ -11,6 +11,7 @@ main > .hero-container {
   position: relative;
   background-color: var(--color-amber);
   overflow: hidden;
+  border-radius: 12px;
 }
 
 /* Row container */
