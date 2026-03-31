@@ -158,7 +158,7 @@ export default async function decorate(block) {
 
     try {
       const response = await fetch(
-        `https://publish-p45403-e1547974.adobeaemcloud.com/compute/coffee-tasting-booking?zip=${encodeURIComponent(zip)}`,
+        `https://publish-p45403-e1547974.adobeaemcloud.com/compute/coffee-tasting-booking?zipcode=${encodeURIComponent(zip)}`,
       );
       const data = await response.json();
       renderResults(data);
