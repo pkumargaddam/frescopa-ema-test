@@ -1,0 +1,8 @@
+{
+  "/**": [
+    {
+      "key": "access-control-allow-origin",
+      "value": "*"
+    }
+  ]
+}
