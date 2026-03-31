@@ -10,7 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
-:root {
+:root,
+:host {
   /* Frescopa brand colors */
   --background-color: #fff;
   --light-color: #f5ece0;
@@ -66,7 +67,8 @@
 }
 
 @media (width >= 900px) {
-  :root {
+  :root,
+  :host {
     --body-font-size-m: 16px;
     --body-font-size-s: 14px;
     --body-font-size-xs: 13px;
