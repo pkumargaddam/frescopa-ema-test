@@ -200,11 +200,11 @@ export class AEMEmbed extends HTMLElement {
   /**
    * Imports a script and appends to document body
    * @param {*} url
-   * @returns
+   * @returns 
    */
 
   // eslint-disable-next-line class-methods-use-this
-  async importScript(url) {
+  async importScript(url) { 
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
       script.src = url;
